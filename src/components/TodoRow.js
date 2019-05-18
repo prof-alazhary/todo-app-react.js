@@ -2,7 +2,12 @@ import React from 'react';
 
 class TodoRow extends React.Component {   
     handleChecke(e) {
-        this.props.onTodoChecked(e.target.id);
+        if(e.target.nodeName == "LI"){
+            this.props.onTodoChecked(e.target.id);
+        }
+    }
+    handleRemove(id,e){
+        this.props.onTodoRemoved(id)
     }
     render() {
         return (
@@ -12,7 +17,7 @@ class TodoRow extends React.Component {
                 id={this.props.id}
             >
                 {this.props.title}
-                <span className="close">×</span>
+                <span onClick={this.handleRemove.bind(this, this.props.id)} className="close">×</span>
             </li>
         );
     }

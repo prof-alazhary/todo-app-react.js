@@ -18,18 +18,20 @@ class TodoContainer extends React.Component {
     }
     handleAddTodo(todo) {
         const todos = cloneDeep(this.state.todos);
-        todos.push(todo)
+        todos.push(todo);
         this.setState({ todos });
+    }
+    handleRemoveTodo(id) {
+        this.setState({ todos: this.state.todos.filter(todo => todo.id != id) });
     }
     render() {
         return (
             <div>
-                <TodoHeader 
-                    onTodoAdd={this.handleAddTodo.bind(this)}
-                />
+                <TodoHeader onTodoAdd={this.handleAddTodo.bind(this)} />
                 <TodoBody
                     todos={this.state.todos}
                     onTodoChecked={this.handleTodoChecked.bind(this)}
+                    onTodoRemoved={this.handleRemoveTodo.bind(this)}
                 />
             </div>
         );
