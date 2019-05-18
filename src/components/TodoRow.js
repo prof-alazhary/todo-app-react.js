@@ -1,8 +1,8 @@
 import React from 'react';
 
-class TodoRow extends React.Component {
+class TodoRow extends React.Component {   
     handleChecke(e) {
-        this.props.onTodoChecked( e.target.id);
+        this.props.onTodoChecked(e.target.id);
     }
     render() {
         return (
