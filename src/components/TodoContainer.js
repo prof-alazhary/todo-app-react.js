@@ -3,8 +3,6 @@ import TodoHeader from './TodoHeader';
 import TodoBody from './TodoBody';
 import cloneDeep from 'lodash/cloneDeep';
 
-console.log(cloneDeep);
-
 class TodoContainer extends React.Component {
     constructor(props) {
         super(props);
